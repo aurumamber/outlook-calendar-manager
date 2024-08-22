@@ -8,6 +8,8 @@ namespace Outlook_Thing
 {
     internal static class Program
     {
+        private static string clientID;
+        private static string tenant;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
