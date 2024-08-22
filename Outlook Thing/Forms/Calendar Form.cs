@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Outlook_Thing
 {
-    public partial class Form2 : Form
+    public partial class CalendarForm : Form
     {
-        public Form2()
+        public CalendarForm()
         {
             InitializeComponent();
+        }
+
+        private void CalendarForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
