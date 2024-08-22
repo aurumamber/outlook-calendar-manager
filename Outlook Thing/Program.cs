@@ -16,6 +16,7 @@ namespace Outlook_Calendar_Manager
     {
         public static string CLIENT_ID;
         public static string TENANT_ID;
+        public static string[] Scopes = { "User.Read", "Calendars.Read", "Calendars.ReadWrite", "Calendars.ReadBasic" };
 
         private static IPublicClientApplication clientApp;
 

@@ -149,25 +149,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Calendar Form.cs">
+    <Compile Include="Forms\Calendar Window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Calendar Form.Designer.cs">
-      <DependentUpon>Calendar Form.cs</DependentUpon>
+    <Compile Include="Forms\Calendar Window.Designer.cs">
+      <DependentUpon>Calendar Window.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Login Form.cs">
+    <Compile Include="Forms\Login Window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Login Form.Designer.cs">
-      <DependentUpon>Login Form.cs</DependentUpon>
+    <Compile Include="Forms\Login Window.Designer.cs">
+      <DependentUpon>Login Window.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Calendar Form.resx">
-      <DependentUpon>Calendar Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login Form.resx">
-      <DependentUpon>Login Form.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Login Window.resx">
+      <DependentUpon>Login Window.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

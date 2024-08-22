@@ -1,6 +1,6 @@
-﻿namespace Outlook_Calendar_Manager
+﻿namespace Outlook_Thing.Forms
 {
-    partial class CalendarForm
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // CalendarForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "CalendarForm";
-            this.Text = "Calendar Manager";
-            this.Load += new System.EventHandler(this.CalendarForm_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "Form1";
         }
 
         #endregion
