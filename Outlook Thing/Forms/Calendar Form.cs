@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Outlook_Thing
+namespace Outlook_Calendar_Manager
 {
     public partial class CalendarForm : Form
     {

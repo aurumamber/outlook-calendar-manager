@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Outlook_Thing.Properties
+namespace Outlook_Calendar_Manager.Properties
 {
 
 
