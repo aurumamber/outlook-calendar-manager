@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Outlook_Thing.Forms;
 
 namespace Outlook_Calendar_Manager
 {
@@ -36,6 +37,11 @@ namespace Outlook_Calendar_Manager
                         .WithAccount(accounts.FirstOrDefault())
                         .WithPrompt(Microsoft.Identity.Client.Prompt.SelectAccount)
                         .ExecuteAsync();
+                if (authResult != null) 
+                {
+                    this.Close();
+
+                }
                 }
                 catch (MsalException msalex)
                 {

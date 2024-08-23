@@ -1,6 +1,6 @@
 ﻿namespace Outlook_Thing.Forms
 {
-    partial class Form1
+    partial class CalendarForm
     {
         /// <summary>
         /// Required designer variable.
