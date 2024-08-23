@@ -1,4 +1,4 @@
-﻿namespace Outlook_Thing.Forms
+﻿namespace Outlook_Calendar_Manager.Forms
 {
     partial class CalendarForm
     {
