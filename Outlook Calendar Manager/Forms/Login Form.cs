@@ -10,7 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Outlook_Thing.Forms;
+using Microsoft.Graph;
+using Azure.Identity;
 
 namespace Outlook_Calendar_Manager
 {
@@ -28,25 +29,25 @@ namespace Outlook_Calendar_Manager
 
         private async void LoginButton(object sender, EventArgs e)
         {
-            AuthenticationResult authResult = null;
-            var accounts = await Program.PublicClientApp.GetAccountsAsync();
-            var firstAccount = accounts.FirstOrDefault();
-                try
-                {
-                    authResult = await Program.PublicClientApp.AcquireTokenInteractive(Program.Scopes)
-                        .WithAccount(accounts.FirstOrDefault())
-                        .WithPrompt(Microsoft.Identity.Client.Prompt.SelectAccount)
-                        .ExecuteAsync();
-                if (authResult != null) 
-                {
-                    this.Close();
+            try
+            {
+                Program.InitAuth();
+                var calendarResult = await Program.PublicGraphClient.Me.Calendars.GetAsync();
 
-                }
-                }
-                catch (MsalException msalex)
+                Console.WriteLine(calendarResult);
+                calendarResult.ToString();
+                foreach (var calendar in calendarResult.Value) 
                 {
-                    label1.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
+                    CalendarBox.Items.Add(calendar);
                 }
             }
+            catch (ServiceException graphex)
+            {
+            }
+        }
+        private void LogoutButton(object sender, EventArgs e)
+        {
+
         }
     }
+}

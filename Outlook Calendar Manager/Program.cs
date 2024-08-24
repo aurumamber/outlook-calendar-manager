@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Text.Json;
 using System.IO;
 using Microsoft.Identity.Client;
+using Microsoft.Graph;
+using Azure.Identity;
 
 namespace Outlook_Calendar_Manager
 {
@@ -16,20 +18,19 @@ namespace Outlook_Calendar_Manager
     {
         public static string CLIENT_ID;
         public static string TENANT_ID;
-        public static string[] Scopes = { "User.Read", "Calendars.Read", "Calendars.ReadWrite", "Calendars.ReadBasic" };
+        public static string[] Scopes = new string[] { "User.Read", "Calendars.Read", "Calendars.ReadWrite", "Calendars.ReadBasic" };
 
-        private static IPublicClientApplication clientApp;
+        private static GraphServiceClient graphClient;
 
         [STAThread]
         static void Main()
         {
             LoadInfo();
-            InitAuth();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
         }
-        public static IPublicClientApplication PublicClientApp { get { return clientApp; } }
+        public static GraphServiceClient PublicGraphClient { get { return graphClient; } }
         public static void LoadInfo()
         {
             string relPath = "Data/AuthInfo.json";
@@ -44,10 +45,16 @@ namespace Outlook_Calendar_Manager
         }
         public static void InitAuth()
         {
-            clientApp = PublicClientApplicationBuilder.Create(CLIENT_ID)
-                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
-                .WithAuthority(AzureCloudInstance.AzurePublic, TENANT_ID)
-                .Build();
+            var options = new InteractiveBrowserCredentialOptions
+            {
+                AuthorityHost = AzureAuthorityHosts.AzurePublicCloud,
+                ClientId = Program.CLIENT_ID,
+                TenantId = Program.TENANT_ID,
+                RedirectUri = new Uri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+            };
+            var interactiveBrowserCredential = new InteractiveBrowserCredential(options);
+
+            graphClient = new GraphServiceClient(interactiveBrowserCredential, Scopes);
         }
     }
 }
