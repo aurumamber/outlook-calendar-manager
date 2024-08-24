@@ -43,6 +43,7 @@ namespace Outlook_Calendar_Manager
             }
             catch (ServiceException graphex)
             {
+
             }
         }
         private void LogoutButton(object sender, EventArgs e)
